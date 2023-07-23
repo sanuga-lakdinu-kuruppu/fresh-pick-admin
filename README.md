@@ -1,70 +1,232 @@
-# Getting Started with Create React App
+        {/* Full Details Tab */}
+        <div className="col-4">
+          <div className="bg-light rounded ms-2 me-2 mt-0 p-2 mb-2">
+            {/* Full Detials Header */}
+            <div className="clearfix mt-3 mb-2">
+              <div className="float-start fw-medium secondary-color">
+                Order Info
+              </div>
+              <div className="float-end fw-medium secondary-color">
+                {"2023-07-05"}
+              </div>
+            </div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+            {/* Full Details Section */}
+            <Box
+              sx={{
+                maxHeight: 505,
+                overflowY: "scroll",
+                "&::-webkit-scrollbar": { display: "none" },
+                msOverflowStyle: "none",
+                scrollbarWidth: "none",
+              }}
+            >
+              <Box
+                sx={{
+                  backgroundColor: "#9797971a",
+                  borderRadius: 8,
+                  padding: "32px 16px",
+                }}
+              >
+                {/* Order Title */}
+                <div className="row mb-3">
+                  <div className="col-auto">
+                    <img src={trolley_img} alt="trolley" />
+                  </div>
+                  <div className="col-auto fw-bolder">
+                    ORDER ID - 187828665488
+                  </div>
+                </div>
 
-## Available Scripts
+                {/* Order Info */}
+                <div className="row mb-3">
+                  <div className="col">
+                    <div className="fw-lighter h6">Customer Name</div>
+                    <div className="fw-bold h6">@imalsah48_3289_</div>
+                  </div>
+                  <div className="col">
+                    <div className="fw-lighter h6">Mobile</div>
+                    <div className="fw-bold h6">+94719876543</div>
+                  </div>
+                </div>
+                <div className="row mb-3">
+                  <div className="col">
+                    <div className="fw-lighter h6">Item Requested</div>
+                    <div className="fw-bold h6">Carrot</div>
+                  </div>
+                </div>
+                <div className="row mb-3">
+                  <div className="col">
+                    <div className="fw-lighter h6">Quantity</div>
+                    <div className="fw-bold h6">115 kg</div>
+                  </div>
+                </div>
+                <div className="row mb-3">
+                  <div className="col">
+                    <div className="fw-lighter h6">Quantity</div>
+                    <div className="fw-bold h6">115 kg</div>
+                  </div>
+                </div>
+                <div className="row mb-3">
+                  <div className="col">
+                    <div className="fw-lighter h6">Delivery Location</div>
+                    <div className="fw-bold h6">4/b, Temple Road, Galle.</div>
+                  </div>
+                </div>
+                <div className="row mb-3">
+                  <div className="col">
+                    <div className="fw-lighter h6">Distance</div>
+                    <div className="fw-bold h6">42 km</div>
+                  </div>
+                </div>
+              </Box>
 
-In the project directory, you can run:
+              {/* Farmers Info */}
+              <div className="clearfix mt-3 mb-2">
+                <div className="fw-medium secondary-color">Farmer Info</div>
+              </div>
+              <Box
+                sx={{
+                  backgroundColor: "#9797971a",
+                  borderRadius: 8,
+                  padding: "32px 16px",
+                }}
+              >
+                <div className="row mb-3">
+                  <div className="col">
+                    <div className="fw-lighter h6">Farmer Name</div>
+                    <div className="fw-bold h6">@sunil_3289_</div>
+                  </div>
+                </div>
+                <div className="row mb-3">
+                  <div className="col">
+                    <div className="fw-lighter h6">Mobile</div>
+                    <div className="fw-bold h6">+94771234567</div>
+                  </div>
+                  <div className="col">
+                    <div className="fw-lighter h6">Mobile</div>
+                    <div className="fw-bold h6">+94719876543</div>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="fw-lighter h6">Pickup Location</div>
+                  <div className="fw-bold h6">
+                    165/52, Milcasalwatta, Anuradhapura.
+                  </div>
+                </div>
+              </Box>
 
-### `npm start`
+              {/* Delivery Info */}
+              <div className="clearfix mt-3 mb-2">
+                <div className="fw-medium secondary-color">Delivery Info</div>
+              </div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+              <Box
+                sx={{
+                  backgroundColor: "#9797971a",
+                  borderRadius: 8,
+                  padding: "32px 16px",
+                  marginBottom: "32px",
+                }}
+              >
+                <div className="row">
+                  <div className="fw-lighter h6 mb-2">Rider Name</div>
+                  <div className="">
+                    <TextField
+                      id="rider-name"
+                      label="Name"
+                      variant="outlined"
+                      size="small"
+                      sx={{ minWidth: "100%", marginBottom: "16px" }}
+                      InputProps={{ style: { borderRadius: 15 } }}
+                    />
+                  </div>
+                </div>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+                <div className="row">
+                  <div className="fw-lighter h6 mb-3">Delivery Method</div>
+                  <div className="">
+                    <FormControl
+                      sx={{
+                        minWidth: "100%",
+                        marginBottom: "16px",
+                      }}
+                      size="small"
+                    >
+                      <InputLabel id="demo-select-small-label">
+                        Location
+                      </InputLabel>
+                      <Select
+                        labelId="demo-select-small-label"
+                        id="demo-select-small"
+                        value={deliveryLocation}
+                        label="Location"
+                        onChange={handleDeliveryLocationChanged}
+                        sx={{ borderRadius: 15 }}
+                      >
+                        <MenuItem value={"location1"}>Location 1</MenuItem>
+                        <MenuItem value={"location2"}>Location 2</MenuItem>
+                        <MenuItem value={"location3"}>Location 3</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </div>
+                </div>
 
-### `npm test`
+                <div className="row">
+                  <div className="fw-lighter h6 mb-2">Rider Mobile</div>
+                  <div className="">
+                    <TextField
+                      id="rider-mobile"
+                      label="Mobile"
+                      variant="outlined"
+                      size="small"
+                      sx={{ minWidth: "100%", marginBottom: "16px" }}
+                      InputProps={{ style: { borderRadius: 15 } }}
+                    />
+                  </div>
+                </div>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+                <div className="row">
+                  <div className="fw-lighter h6 mb-2">Vehicle No</div>
+                  <div className="">
+                    <TextField
+                      id="rider-vehicle-no"
+                      label="Vehicle No"
+                      variant="outlined"
+                      size="small"
+                      sx={{ minWidth: "100%", marginBottom: "16px" }}
+                      InputProps={{ style: { borderRadius: 15 } }}
+                    />
+                  </div>
+                </div>
+              </Box>
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+              {/* Action Button */}
+              <div className="row mb-2">
+                <div className="col">
+                  <DefaultButton sx={{ width: "100%", padding: "10px 15px" }}>
+                    Assign
+                  </DefaultButton>
+                </div>
+              </div>
+              <div className="row mb-5">
+                <div className="col">
+                  <DefaultButton
+                    sx={{
+                      width: "100%",
+                      padding: "10px 15px",
+                      color: "#2196F3",
+                      border: "1px solid #2196F3",
+                      backgroundColor: "#FFF",
+                      "&:hover": {
+                        color: "#FFF",
+                      },
+                    }}
+                  >
+                    Cancel
+                  </DefaultButton>
+                </div>
+              </div>
+            </Box>
+          </div>
+        </div>
