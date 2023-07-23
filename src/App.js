@@ -8,6 +8,7 @@ import Dashboard from "./pages/dashboard/dashboard";
 import "./assets/styles/gloablestyles.css";
 import Users from "./pages/users/users";
 import CustomerDashboard from "./pages/customer-dashboard/customerdashboard";
+import Delivery from "./pages/delivery";
 
 function App() {
   const [navSelected, setNavSelected] = React.useState("dashboard");
@@ -30,6 +31,7 @@ function App() {
                     path="/user/id"
                     element={<CustomerDashboard />}
                   ></Route>
+                  <Route path="/delivery" element={<Delivery />}></Route>
                 </Routes>
               </div>
             </div>

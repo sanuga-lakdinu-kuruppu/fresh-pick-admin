@@ -35,12 +35,6 @@ const navMenuData = [
     item: "Posts",
   },
   {
-    id: 4,
-    key: "order",
-    icon: <ShoppingCart className="nav-menu-icon" />,
-    item: "Orders",
-  },
-  {
     id: 5,
     key: "delivery",
     icon: <LocalShipping className="nav-menu-icon" />,
@@ -222,11 +216,229 @@ const customerOrderFilterMenuData = [
   },
 ];
 
+//Users Table Rows
+const userTableRowData = [
+  {
+    id: 1,
+    icon: <AccountCircle />,
+    userName: "Amali Wathsala",
+    buying: "True",
+    selling: "False",
+    nic: 200201133099,
+    doj: "2023-07-23",
+  },
+  {
+    id: 2,
+    icon: <AccountCircle />,
+    userName: "Amali Wathsala",
+    buying: "True",
+    selling: "False",
+    nic: 200201133099,
+    doj: "2023-07-23",
+  },
+  {
+    id: 3,
+    icon: <AccountCircle />,
+    userName: "Amali Wathsala",
+    buying: "True",
+    selling: "False",
+    nic: 200201133099,
+    doj: "2023-07-23",
+  },
+  {
+    id: 4,
+    icon: <AccountCircle />,
+    userName: "Amali Wathsala",
+    buying: "True",
+    selling: "False",
+    nic: 200201133099,
+    doj: "2023-07-23",
+  },
+  {
+    id: 5,
+    icon: <AccountCircle />,
+    userName: "Amali Wathsala",
+    buying: "True",
+    selling: "False",
+    nic: 200201133099,
+    doj: "2023-07-23",
+  },
+  {
+    id: 6,
+    icon: <AccountCircle />,
+    userName: "Amali Wathsala",
+    buying: "True",
+    selling: "False",
+    nic: 200201133099,
+    doj: "2023-07-23",
+  },
+  {
+    id: 7,
+    icon: <AccountCircle />,
+    userName: "Amali Wathsala",
+    buying: "True",
+    selling: "False",
+    nic: 200201133099,
+    doj: "2023-07-23",
+  },
+  {
+    id: 8,
+    icon: <AccountCircle />,
+    userName: "Amali Wathsala",
+    buying: "True",
+    selling: "False",
+    nic: 200201133099,
+    doj: "2023-07-23",
+  },
+  {
+    id: 9,
+    icon: <AccountCircle />,
+    userName: "Amali Wathsala",
+    buying: "True",
+    selling: "False",
+    nic: 200201133099,
+    doj: "2023-07-23",
+  },
+  {
+    id: 10,
+    icon: <AccountCircle />,
+    userName: "Amali Wathsala",
+    buying: "True",
+    selling: "False",
+    nic: 200201133099,
+    doj: "2023-07-23",
+  },
+  {
+    id: 11,
+    icon: <AccountCircle />,
+    userName: "Amali Wathsala",
+    buying: "True",
+    selling: "False",
+    nic: 200201133099,
+    doj: "2023-07-23",
+  },
+  {
+    id: 12,
+    icon: <AccountCircle />,
+    userName: "Amali Wathsala",
+    buying: "True",
+    selling: "False",
+    nic: 200201133099,
+    doj: "2023-07-23",
+  },
+];
+
+//Deliveries Table Rows
+const deliveryTableRowData = [
+  {
+    id: 1,
+    orderId: 46813297654564,
+    avatar: <AccountCircle />,
+    product: "Korean (Long) Radish",
+    qty: "115 kg",
+    distance: "42 Km",
+    date: "18 June 2023",
+  },
+  {
+    id: 2,
+    orderId: 46813297654564,
+    avatar: <AccountCircle />,
+    product: "Korean (Long) Radish",
+    qty: "115 kg",
+    distance: "42 Km",
+    date: "18 June 2023",
+  },
+  {
+    id: 3,
+    orderId: 46813297654564,
+    avatar: <AccountCircle />,
+    product: "Korean (Long) Radish",
+    qty: "115 kg",
+    distance: "42 Km",
+    date: "18 June 2023",
+  },
+  {
+    id: 4,
+    orderId: 46813297654564,
+    avatar: <AccountCircle />,
+    product: "Korean (Long) Radish",
+    qty: "115 kg",
+    distance: "42 Km",
+    date: "18 June 2023",
+  },
+  {
+    id: 5,
+    orderId: 46813297654564,
+    avatar: <AccountCircle />,
+    product: "Korean (Long) Radish",
+    qty: "115 kg",
+    distance: "42 Km",
+    date: "18 June 2023",
+  },
+  {
+    id: 6,
+    orderId: 46813297654564,
+    avatar: <AccountCircle />,
+    product: "Korean (Long) Radish",
+    qty: "115 kg",
+    distance: "42 Km",
+    date: "18 June 2023",
+  },
+  {
+    id: 7,
+    orderId: 46813297654564,
+    avatar: <AccountCircle />,
+    product: "Korean (Long) Radish",
+    qty: "115 kg",
+    distance: "42 Km",
+    date: "18 June 2023",
+  },
+  {
+    id: 8,
+    orderId: 46813297654564,
+    avatar: <AccountCircle />,
+    product: "Korean (Long) Radish",
+    qty: "115 kg",
+    distance: "42 Km",
+    date: "18 June 2023",
+  },
+  {
+    id: 9,
+    orderId: 46813297654564,
+    avatar: <AccountCircle />,
+    product: "Korean (Long) Radish",
+    qty: "115 kg",
+    distance: "42 Km",
+    date: "18 June 2023",
+  },
+  {
+    id: 10,
+    orderId: 46813297654564,
+    avatar: <AccountCircle />,
+    product: "Korean (Long) Radish",
+    qty: "115 kg",
+    distance: "42 Km",
+    date: "18 June 2023",
+  },
+  {
+    id: 11,
+    orderId: 46813297654564,
+    avatar: <AccountCircle />,
+    product: "Korean (Long) Radish",
+    qty: "115 kg",
+    distance: "42 Km",
+    date: "18 June 2023",
+  },
+];
+
 export const NavMenuData = navMenuData;
 export const GloableSearchOption = gloablesearchoption;
 export const DashboardAnalyticsCardData = dashboardAnalyticsCardData;
 export const CustomerOrderFilterMenuData = customerOrderFilterMenuData;
+export const UserTableRowData = userTableRowData;
+export const DeliveryTableRowData = deliveryTableRowData;
 
+//Tempory datatable- This should be need to remove after developing
 //Rides Table Rows
 const ridesTableRows = [
   {

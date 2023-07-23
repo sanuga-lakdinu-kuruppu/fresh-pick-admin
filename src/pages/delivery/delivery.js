@@ -1,14 +1,10 @@
 import React, { useContext, useState } from "react";
-import "./usersstyles.css";
-import { useNavigate } from "react-router-dom";
-import { NavContext } from "../../context/navcontext";
+import "./deliverystyles.css";
 import SearchBox from "../../components/searchbox/searchbox";
-import BikeRideImg from "../../assets/graphics/images/rides_imgs/delivery-bike-rides-bicycle-img.png";
-import { TabContext, TabList, TabPanel } from "@mui/lab";
 import {
   IconButton,
-  Paper,
   Tab,
+  Paper,
   Table,
   TableBody,
   TableCell,
@@ -17,10 +13,17 @@ import {
   TableRow,
 } from "@mui/material";
 import { CalendarMonth, NotificationAdd } from "@mui/icons-material";
-import { UserTableRowData as userTableRowData } from "../../utils/constants/uiconstants";
+import { NavContext } from "../../context/navcontext";
+import { useNavigate } from "react-router-dom";
+import { TabContext, TabList, TabPanel } from "@mui/lab";
 import SearchField from "../../components/searchfield/searchfield";
+import BikeRideImg from "../../assets/graphics/images/delivery_imgs/delivery-bike-rides-bicycle-img.png";
+import {
+  DeliveryTableRowData as deliveryTableRowData,
+  UserTableRowData as userTableRowData,
+} from "../../utils/constants/uiconstants";
 
-function Users() {
+function Delivery() {
   //User Defined
   //Navigation Handle
   const navigate = useNavigate();
@@ -31,7 +34,7 @@ function Users() {
   };
 
   //Tab Panel
-  const [selectedTab, setSelectedTab] = useState("customer");
+  const [selectedTab, setSelectedTab] = useState("requested");
   const handleChange = (event, newValue) => {
     setSelectedTab(newValue);
   };
@@ -50,14 +53,13 @@ function Users() {
   };
 
   return (
-    <div className="overflow-y-hidden">
-      {/* Heading */}
+    <div className="">
       <div className="row ms-2 my-3 py-3 h3 fw-bolder primary-color">
         {/* Heading title */}
         <div className="d-inline-block col-auto my-1 align-self-center">
-          <div className="d-block main-header fw-bold">Users</div>
+          <div className="d-block main-header fw-bold">Deliveries</div>
           <div className="d-block secondary-color sub-header fw-normal">
-            Fast, efficient, and always on time
+            Fast, efficient, and always on time.
           </div>
         </div>
 
@@ -100,7 +102,7 @@ function Users() {
           {/* User Heading*/}
           <div className="row bg-light mb-3 ms-4 py-2 rounded">
             <div className="h4 secondary-color fw-bolder text-black">
-              All Users
+              All your Deliveries
               <div className="d-block float-end">
                 <img
                   className="top-head-image ms-3"
@@ -119,26 +121,26 @@ function Users() {
                 aria-label="secondary tabs example"
               >
                 <TabList onChange={handleChange}>
-                  <Tab value="customer" label="Customers"></Tab>
-                  <Tab value="transport" label="Transportation Company" />
-                  <Tab value="admin" label="Admin" />
+                  <Tab value="requested" label="requested"></Tab>
+                  <Tab value="ongoing" label="ongoing" />
+                  <Tab value="completed" label="completed" />
                 </TabList>
 
                 {/* Search Field */}
-                <div className="row my-3">
+                <div className="row mt-3">
                   <div className="col"></div>
                   <div className="col-auto me-4 float-end">
                     <SearchField onChange={searchFieldOnTextChange} />
                   </div>
                 </div>
 
-                {/* Customer Table */}
-                <TabPanel value="customer">
+                {/*Requested Table */}
+                <TabPanel value="requested">
                   <TableContainer
                     component={Paper}
                     sx={{
                       overflowY: "scroll",
-                      maxHeight: 300,
+                      maxHeight: 350,
                       "&::-webkit-scrollbar": { display: "none" },
                       msOverflowStyle: "none",
                       scrollbarWidth: "none",
@@ -151,15 +153,15 @@ function Users() {
                           onClick={() => handleSelectRow(0)}
                         >
                           <TableCell></TableCell>
-                          <TableCell align="right">User Name</TableCell>
-                          <TableCell align="right">Buying</TableCell>
-                          <TableCell align="right">Selling</TableCell>
-                          <TableCell align="right">NIC</TableCell>
+                          <TableCell align="right">Order Id</TableCell>
+                          <TableCell align="right">Product</TableCell>
+                          <TableCell align="right">Quanitity</TableCell>
+                          <TableCell align="right">Distance</TableCell>
                           <TableCell align="right">DOJ</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody sx={{}}>
-                        {userTableRowData.map((row, index) => (
+                        {deliveryTableRowData.map((row, index) => (
                           <TableRow
                             key={row.id}
                             sx={{
@@ -170,26 +172,27 @@ function Users() {
                             hover
                           >
                             <TableCell component="th" scope="row">
-                              {row.icon}
+                              {row.avatar}
                             </TableCell>
-                            <TableCell align="right">{row.userName}</TableCell>
-                            <TableCell align="right">{row.buying}</TableCell>
-                            <TableCell align="right">{row.selling}</TableCell>
-                            <TableCell align="right">{row.nic}</TableCell>
-                            <TableCell align="right">{row.doj}</TableCell>
+                            <TableCell align="right">{row.orderId}</TableCell>
+                            <TableCell align="right">{row.product}</TableCell>
+                            <TableCell align="right">{row.qty}</TableCell>
+                            <TableCell align="right">{row.distance}</TableCell>
+                            <TableCell align="right">{row.date}</TableCell>
                           </TableRow>
                         ))}
                       </TableBody>
                     </Table>
                   </TableContainer>
                 </TabPanel>
-                {/* Transport Table */}
-                <TabPanel value="transport">
+
+                {/* Ongoing Table */}
+                <TabPanel value="ongoing">
                   <TableContainer
                     component={Paper}
                     sx={{
                       overflowY: "scroll",
-                      maxHeight: 360,
+                      maxHeight: 350,
                       "&::-webkit-scrollbar": { display: "none" },
                       msOverflowStyle: "none",
                       scrollbarWidth: "none",
@@ -202,15 +205,15 @@ function Users() {
                           onClick={() => handleSelectRow(0)}
                         >
                           <TableCell></TableCell>
-                          <TableCell align="right">User Name</TableCell>
-                          <TableCell align="right">Buying</TableCell>
-                          <TableCell align="right">Selling</TableCell>
-                          <TableCell align="right">NIC</TableCell>
+                          <TableCell align="right">Order Id</TableCell>
+                          <TableCell align="right">Product</TableCell>
+                          <TableCell align="right">Quanitity</TableCell>
+                          <TableCell align="right">Distance</TableCell>
                           <TableCell align="right">DOJ</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody sx={{}}>
-                        {userTableRowData.map((row, index) => (
+                        {deliveryTableRowData.map((row, index) => (
                           <TableRow
                             key={row.id}
                             sx={{
@@ -221,26 +224,27 @@ function Users() {
                             hover
                           >
                             <TableCell component="th" scope="row">
-                              {row.icon}
+                              {row.avatar}
                             </TableCell>
-                            <TableCell align="right">{row.userName}</TableCell>
-                            <TableCell align="right">{row.buying}</TableCell>
-                            <TableCell align="right">{row.selling}</TableCell>
-                            <TableCell align="right">{row.nic}</TableCell>
-                            <TableCell align="right">{row.doj}</TableCell>
+                            <TableCell align="right">{row.orderId}</TableCell>
+                            <TableCell align="right">{row.product}</TableCell>
+                            <TableCell align="right">{row.qty}</TableCell>
+                            <TableCell align="right">{row.distance}</TableCell>
+                            <TableCell align="right">{row.date}</TableCell>
                           </TableRow>
                         ))}
                       </TableBody>
                     </Table>
                   </TableContainer>
                 </TabPanel>
-                {/* Admin Table */}
-                <TabPanel value="admin">
+
+                {/* Completed Table */}
+                <TabPanel value="completed">
                   <TableContainer
                     component={Paper}
                     sx={{
                       overflowY: "scroll",
-                      maxHeight: 360,
+                      maxHeight: 350,
                       "&::-webkit-scrollbar": { display: "none" },
                       msOverflowStyle: "none",
                       scrollbarWidth: "none",
@@ -253,15 +257,15 @@ function Users() {
                           onClick={() => handleSelectRow(0)}
                         >
                           <TableCell></TableCell>
-                          <TableCell align="right">User Name</TableCell>
-                          <TableCell align="right">Buying</TableCell>
-                          <TableCell align="right">Selling</TableCell>
-                          <TableCell align="right">NIC</TableCell>
+                          <TableCell align="right">Order Id</TableCell>
+                          <TableCell align="right">Product</TableCell>
+                          <TableCell align="right">Quanitity</TableCell>
+                          <TableCell align="right">Distance</TableCell>
                           <TableCell align="right">DOJ</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody sx={{}}>
-                        {userTableRowData.map((row, index) => (
+                        {deliveryTableRowData.map((row, index) => (
                           <TableRow
                             key={row.id}
                             sx={{
@@ -272,13 +276,13 @@ function Users() {
                             hover
                           >
                             <TableCell component="th" scope="row">
-                              {row.icon}
+                              {row.avatar}
                             </TableCell>
-                            <TableCell align="right">{row.userName}</TableCell>
-                            <TableCell align="right">{row.buying}</TableCell>
-                            <TableCell align="right">{row.selling}</TableCell>
-                            <TableCell align="right">{row.nic}</TableCell>
-                            <TableCell align="right">{row.doj}</TableCell>
+                            <TableCell align="right">{row.orderId}</TableCell>
+                            <TableCell align="right">{row.product}</TableCell>
+                            <TableCell align="right">{row.qty}</TableCell>
+                            <TableCell align="right">{row.distance}</TableCell>
+                            <TableCell align="right">{row.date}</TableCell>
                           </TableRow>
                         ))}
                       </TableBody>
@@ -294,4 +298,4 @@ function Users() {
   );
 }
 
-export default Users;
+export default Delivery;
