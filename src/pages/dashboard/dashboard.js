@@ -111,7 +111,7 @@ function Dashboard() {
         <div className="row">
           {dashboardAnalyticsCardData.post.map((postCard) => {
             return (
-              <div key={postCard.id} className="col">
+              <div key={postCard.id} className="col-auto">
                 <div className="">
                   <AnalyticCard
                     backgroundColor={postCard.backgroundColor}

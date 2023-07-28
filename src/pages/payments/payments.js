@@ -1,33 +1,27 @@
-import React, { useContext, useState } from "react";
-import "./deliverystyles.css";
-import SearchBox from "../../components/searchbox/searchbox";
+import { CalendarMonth, NotificationAdd } from "@mui/icons-material";
 import {
+  Box,
   IconButton,
-  Tab,
   Paper,
+  Tab,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
-  Box,
-  TextField,
 } from "@mui/material";
-import { CalendarMonth, NotificationAdd } from "@mui/icons-material";
+import React, { useContext, useState } from "react";
 import { NavContext } from "../../context/navcontext";
 import { useNavigate } from "react-router-dom";
+import SearchBox from "../../components/searchbox/searchbox";
+import BikeRideImg from "../../assets/graphics/images/payments_imgs/delivery-bike-rides-bicycle-img.png";
+import trolley_img from "../../assets/graphics/images/payments_imgs/trolley_full_details.png";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import SearchField from "../../components/searchfield/searchfield";
-import BikeRideImg from "../../assets/graphics/images/delivery_imgs/delivery-bike-rides-bicycle-img.png";
-import {
-  DeliveryTableRowData as deliveryTableRowData,
-  UserTableRowData as userTableRowData,
-} from "../../utils/constants/uiconstants";
-import { DefaultButton } from "../../components/common/defaultbtn";
-import trolley_img from "../../assets/graphics/images/delivery_imgs/trolley_full_details.png";
+import { PaymentTableRowData as paymentTableRowData } from "../../utils/constants/uiconstants";
 
-function Delivery() {
+function Payments() {
   //User Defined
   //Navigation Handle
   const navigate = useNavigate();
@@ -38,7 +32,7 @@ function Delivery() {
   };
 
   //Tab Panel
-  const [selectedTab, setSelectedTab] = useState("requested");
+  const [selectedTab, setSelectedTab] = useState("seller");
   const handleChange = (event, newValue) => {
     setSelectedTab(newValue);
   };
@@ -61,9 +55,11 @@ function Delivery() {
       <div className="row ms-2 my-3 py-3 h3 fw-bolder primary-color">
         {/* Heading title */}
         <div className="d-inline-block col-auto my-1 align-self-center">
-          <div className="d-block main-header fw-bold">Deliveries</div>
+          <div className="d-block main-header fw-bold">
+            Where Farming Meets Retails
+          </div>
           <div className="d-block secondary-color sub-header fw-normal">
-            Fast, efficient, and always on time.
+            On - time, every time.
           </div>
         </div>
 
@@ -106,7 +102,7 @@ function Delivery() {
           {/* User Heading*/}
           <div className="row bg-light mb-3 ms-4 py-2 rounded">
             <div className="h4 secondary-color fw-bolder text-black">
-              All your Deliveries
+              Money Distribution
               <div className="d-block float-end">
                 <img
                   className="top-head-image ms-3"
@@ -125,9 +121,9 @@ function Delivery() {
                 aria-label="secondary tabs example"
               >
                 <TabList onChange={handleChange}>
-                  <Tab value="requested" label="requested"></Tab>
-                  <Tab value="ongoing" label="ongoing" />
-                  <Tab value="completed" label="completed" />
+                  <Tab value="seller" label="Seller"></Tab>
+                  <Tab value="company" label="Transportation Company" />
+                  <Tab value="membership" label="Membership" />
                 </TabList>
 
                 {/* Search Field */}
@@ -138,13 +134,13 @@ function Delivery() {
                   </div>
                 </div>
 
-                {/*Requested Table */}
-                <TabPanel value="requested">
+                {/* Customer Table */}
+                <TabPanel value="seller">
                   <TableContainer
                     component={Paper}
                     sx={{
                       overflowY: "scroll",
-                      maxHeight: 350,
+                      maxHeight: 300,
                       "&::-webkit-scrollbar": { display: "none" },
                       msOverflowStyle: "none",
                       scrollbarWidth: "none",
@@ -157,15 +153,14 @@ function Delivery() {
                           onClick={() => handleSelectRow(0)}
                         >
                           <TableCell></TableCell>
-                          <TableCell align="right">Order Id</TableCell>
-                          <TableCell align="right">Product</TableCell>
-                          <TableCell align="right">Quanitity</TableCell>
-                          <TableCell align="right">Distance</TableCell>
+                          <TableCell align="right">User Name</TableCell>
+                          <TableCell align="right">NIC</TableCell>
                           <TableCell align="right">DOJ</TableCell>
                         </TableRow>
                       </TableHead>
+
                       <TableBody sx={{}}>
-                        {deliveryTableRowData.map((row, index) => (
+                        {paymentTableRowData.map((row, index) => (
                           <TableRow
                             key={row.id}
                             sx={{
@@ -178,25 +173,22 @@ function Delivery() {
                             <TableCell component="th" scope="row">
                               {row.avatar}
                             </TableCell>
-                            <TableCell align="right">{row.orderId}</TableCell>
-                            <TableCell align="right">{row.product}</TableCell>
-                            <TableCell align="right">{row.qty}</TableCell>
-                            <TableCell align="right">{row.distance}</TableCell>
-                            <TableCell align="right">{row.date}</TableCell>
+                            <TableCell align="right">{row.userName}</TableCell>
+                            <TableCell align="right">{row.nic}</TableCell>
+                            <TableCell align="right">{row.doj}</TableCell>
                           </TableRow>
                         ))}
                       </TableBody>
                     </Table>
                   </TableContainer>
                 </TabPanel>
-
-                {/* Ongoing Table */}
-                <TabPanel value="ongoing">
+                {/* Transport Table */}
+                <TabPanel value="company">
                   <TableContainer
                     component={Paper}
                     sx={{
                       overflowY: "scroll",
-                      maxHeight: 350,
+                      maxHeight: 360,
                       "&::-webkit-scrollbar": { display: "none" },
                       msOverflowStyle: "none",
                       scrollbarWidth: "none",
@@ -209,15 +201,13 @@ function Delivery() {
                           onClick={() => handleSelectRow(0)}
                         >
                           <TableCell></TableCell>
-                          <TableCell align="right">Order Id</TableCell>
-                          <TableCell align="right">Product</TableCell>
-                          <TableCell align="right">Quanitity</TableCell>
-                          <TableCell align="right">Distance</TableCell>
+                          <TableCell align="right">User Name</TableCell>
+                          <TableCell align="right">NIC</TableCell>
                           <TableCell align="right">DOJ</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody sx={{}}>
-                        {deliveryTableRowData.map((row, index) => (
+                        {paymentTableRowData.map((row, index) => (
                           <TableRow
                             key={row.id}
                             sx={{
@@ -230,25 +220,22 @@ function Delivery() {
                             <TableCell component="th" scope="row">
                               {row.avatar}
                             </TableCell>
-                            <TableCell align="right">{row.orderId}</TableCell>
-                            <TableCell align="right">{row.product}</TableCell>
-                            <TableCell align="right">{row.qty}</TableCell>
-                            <TableCell align="right">{row.distance}</TableCell>
-                            <TableCell align="right">{row.date}</TableCell>
+                            <TableCell align="right">{row.userName}</TableCell>
+                            <TableCell align="right">{row.nic}</TableCell>
+                            <TableCell align="right">{row.doj}</TableCell>
                           </TableRow>
                         ))}
                       </TableBody>
                     </Table>
                   </TableContainer>
                 </TabPanel>
-
-                {/* Completed Table */}
-                <TabPanel value="completed">
+                {/* Admin Table */}
+                <TabPanel value="membership">
                   <TableContainer
                     component={Paper}
                     sx={{
                       overflowY: "scroll",
-                      maxHeight: 350,
+                      maxHeight: 360,
                       "&::-webkit-scrollbar": { display: "none" },
                       msOverflowStyle: "none",
                       scrollbarWidth: "none",
@@ -261,15 +248,13 @@ function Delivery() {
                           onClick={() => handleSelectRow(0)}
                         >
                           <TableCell></TableCell>
-                          <TableCell align="right">Order Id</TableCell>
-                          <TableCell align="right">Product</TableCell>
-                          <TableCell align="right">Quanitity</TableCell>
-                          <TableCell align="right">Distance</TableCell>
+                          <TableCell align="right">User Name</TableCell>
+                          <TableCell align="right">NIC</TableCell>
                           <TableCell align="right">DOJ</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody sx={{}}>
-                        {deliveryTableRowData.map((row, index) => (
+                        {paymentTableRowData.map((row, index) => (
                           <TableRow
                             key={row.id}
                             sx={{
@@ -282,11 +267,9 @@ function Delivery() {
                             <TableCell component="th" scope="row">
                               {row.avatar}
                             </TableCell>
-                            <TableCell align="right">{row.orderId}</TableCell>
-                            <TableCell align="right">{row.product}</TableCell>
-                            <TableCell align="right">{row.qty}</TableCell>
-                            <TableCell align="right">{row.distance}</TableCell>
-                            <TableCell align="right">{row.date}</TableCell>
+                            <TableCell align="right">{row.userName}</TableCell>
+                            <TableCell align="right">{row.nic}</TableCell>
+                            <TableCell align="right">{row.doj}</TableCell>
                           </TableRow>
                         ))}
                       </TableBody>
@@ -297,130 +280,130 @@ function Delivery() {
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Full Details Tab */}
-        <div className="col-4">
-          <div className="bg-light rounded ms-2 me-2 mt-0 p-2 mb-2">
-            {/* Full Detials Header */}
-            <div className="clearfix mt-3 mb-2">
-              <div className="float-start fw-medium secondary-color">
-                Order Info
-              </div>
-              <div className="float-end fw-medium secondary-color">
-                {"2023-07-05"}
-              </div>
+      {/* Full Details Tab */}
+      <div className="col-4">
+        <div className="bg-light rounded ms-2 me-2 mt-0 p-2 mb-2">
+          {/* Full Detials Header */}
+          <div className="clearfix mt-3 mb-2">
+            <div className="float-start fw-medium secondary-color">
+              Order Info
             </div>
+            <div className="float-end fw-medium secondary-color">
+              {"2023-07-05"}
+            </div>
+          </div>
 
-            {/* Full Details Section */}
+          {/* Full Details Section */}
+          <Box
+            sx={{
+              maxHeight: 505,
+              overflowY: "scroll",
+              "&::-webkit-scrollbar": { display: "none" },
+              msOverflowStyle: "none",
+              scrollbarWidth: "none",
+            }}
+          >
             <Box
               sx={{
-                maxHeight: 505,
-                overflowY: "scroll",
-                "&::-webkit-scrollbar": { display: "none" },
-                msOverflowStyle: "none",
-                scrollbarWidth: "none",
+                backgroundColor: "#9797971a",
+                borderRadius: 8,
+                padding: "32px 16px",
               }}
             >
-              <Box
-                sx={{
-                  backgroundColor: "#9797971a",
-                  borderRadius: 8,
-                  padding: "32px 16px",
-                }}
-              >
-                {/* Order Title */}
-                <div className="row mb-3">
-                  <div className="col-auto">
-                    <img src={trolley_img} alt="trolley" />
-                  </div>
-                  <div className="col-auto fw-bolder">
-                    ORDER ID - 187828665488
-                  </div>
+              {/* Order Title */}
+              <div className="row mb-3">
+                <div className="col-auto">
+                  <img src={trolley_img} alt="trolley" />
                 </div>
-
-                {/* Order Info */}
-                <div className="row mb-3">
-                  <div className="col">
-                    <div className="fw-lighter h6">Customer Name</div>
-                    <div className="fw-bold h6">@imalsah48_3289_</div>
-                  </div>
-                  <div className="col">
-                    <div className="fw-lighter h6">Mobile</div>
-                    <div className="fw-bold h6">+94719876543</div>
-                  </div>
+                <div className="col-auto fw-bolder">
+                  ORDER ID - 187828665488
                 </div>
-                <div className="row mb-3">
-                  <div className="col">
-                    <div className="fw-lighter h6">Item Requested</div>
-                    <div className="fw-bold h6">Carrot</div>
-                  </div>
-                </div>
-                <div className="row mb-3">
-                  <div className="col">
-                    <div className="fw-lighter h6">Quantity</div>
-                    <div className="fw-bold h6">115 kg</div>
-                  </div>
-                </div>
-                <div className="row mb-3">
-                  <div className="col">
-                    <div className="fw-lighter h6">Weight</div>
-                    <div className="fw-bold h6">115 kg</div>
-                  </div>
-                </div>
-                <div className="row mb-3">
-                  <div className="col">
-                    <div className="fw-lighter h6">Delivery Location</div>
-                    <div className="fw-bold h6">4/b, Temple Road, Galle.</div>
-                  </div>
-                </div>
-                <div className="row mb-3">
-                  <div className="col">
-                    <div className="fw-lighter h6">Distance</div>
-                    <div className="fw-bold h6">42 km</div>
-                  </div>
-                </div>
-              </Box>
-
-              {/* Farmers Info */}
-              <div className="clearfix mt-3 mb-2">
-                <div className="fw-medium secondary-color">Farmer Info</div>
               </div>
-              <Box
-                sx={{
-                  backgroundColor: "#9797971a",
-                  borderRadius: 8,
-                  padding: "32px 16px",
-                }}
-              >
-                <div className="row mb-3">
-                  <div className="col">
-                    <div className="fw-lighter h6">Farmer Name</div>
-                    <div className="fw-bold h6">@sunil_3289_</div>
-                  </div>
+
+              {/* Order Info */}
+              <div className="row mb-3">
+                <div className="col">
+                  <div className="fw-lighter h6">Customer Name</div>
+                  <div className="fw-bold h6">@imalsah48_3289_</div>
                 </div>
-                <div className="row mb-3">
-                  <div className="col">
-                    <div className="fw-lighter h6">Mobile</div>
-                    <div className="fw-bold h6">+94771234567</div>
-                  </div>
-                  <div className="col">
-                    <div className="fw-lighter h6">Mobile</div>
-                    <div className="fw-bold h6">+94719876543</div>
-                  </div>
+                <div className="col">
+                  <div className="fw-lighter h6">Mobile</div>
+                  <div className="fw-bold h6">+94719876543</div>
                 </div>
-                <div className="row">
-                  <div className="fw-lighter h6">Pickup Location</div>
-                  <div className="fw-bold h6">
-                    165/52, Milcasalwatta, Anuradhapura.
-                  </div>
+              </div>
+              <div className="row mb-3">
+                <div className="col">
+                  <div className="fw-lighter h6">Item Requested</div>
+                  <div className="fw-bold h6">Carrot</div>
                 </div>
-              </Box>
+              </div>
+              <div className="row mb-3">
+                <div className="col">
+                  <div className="fw-lighter h6">Quantity</div>
+                  <div className="fw-bold h6">115 kg</div>
+                </div>
+              </div>
+              <div className="row mb-3">
+                <div className="col">
+                  <div className="fw-lighter h6">Weight</div>
+                  <div className="fw-bold h6">115 kg</div>
+                </div>
+              </div>
+              <div className="row mb-3">
+                <div className="col">
+                  <div className="fw-lighter h6">Delivery Location</div>
+                  <div className="fw-bold h6">4/b, Temple Road, Galle.</div>
+                </div>
+              </div>
+              <div className="row mb-3">
+                <div className="col">
+                  <div className="fw-lighter h6">Distance</div>
+                  <div className="fw-bold h6">42 km</div>
+                </div>
+              </div>
             </Box>
-          </div>
+
+            {/* Farmers Info */}
+            <div className="clearfix mt-3 mb-2">
+              <div className="fw-medium secondary-color">Farmer Info</div>
+            </div>
+            <Box
+              sx={{
+                backgroundColor: "#9797971a",
+                borderRadius: 8,
+                padding: "32px 16px",
+              }}
+            >
+              <div className="row mb-3">
+                <div className="col">
+                  <div className="fw-lighter h6">Farmer Name</div>
+                  <div className="fw-bold h6">@sunil_3289_</div>
+                </div>
+              </div>
+              <div className="row mb-3">
+                <div className="col">
+                  <div className="fw-lighter h6">Mobile</div>
+                  <div className="fw-bold h6">+94771234567</div>
+                </div>
+                <div className="col">
+                  <div className="fw-lighter h6">Mobile</div>
+                  <div className="fw-bold h6">+94719876543</div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="fw-lighter h6">Pickup Location</div>
+                <div className="fw-bold h6">
+                  165/52, Milcasalwatta, Anuradhapura.
+                </div>
+              </div>
+            </Box>
+          </Box>
         </div>
       </div>
     </div>
   );
 }
 
-export default Delivery;
+export default Payments;

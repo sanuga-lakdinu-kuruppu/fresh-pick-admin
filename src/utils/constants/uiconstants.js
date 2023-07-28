@@ -431,12 +431,102 @@ const deliveryTableRowData = [
   },
 ];
 
+//Payments Data Table Rows
+const paymentTableRowData = [
+  {
+    id: 1,
+    avatar: <AccountCircle />,
+    userName: "Amali Wathsala",
+    nic: "2202222222222",
+    doj: "2023-07-24",
+  },
+
+  {
+    id: 2,
+    avatar: <AccountCircle />,
+    userName: "Amali Wathsala",
+    nic: "2202222222222",
+    doj: "2023-07-24",
+  },
+  {
+    id: 3,
+    avatar: <AccountCircle />,
+    userName: "Amali Wathsala",
+    nic: "2202222222222",
+    doj: "2023-07-24",
+  },
+  {
+    id: 4,
+    avatar: <AccountCircle />,
+    userName: "Amali Wathsala",
+    nic: "2202222222222",
+    doj: "2023-07-24",
+  },
+  {
+    id: 5,
+    avatar: <AccountCircle />,
+    userName: "Amali Wathsala",
+    nic: "2202222222222",
+    doj: "2023-07-24",
+  },
+  {
+    id: 6,
+    avatar: <AccountCircle />,
+    userName: "Amali Wathsala",
+    nic: "2202222222222",
+    doj: "2023-07-24",
+  },
+  {
+    id: 7,
+    avatar: <AccountCircle />,
+    userName: "Amali Wathsala",
+    nic: "2202222222222",
+    doj: "2023-07-24",
+  },
+  {
+    id: 8,
+    avatar: <AccountCircle />,
+    userName: "Amali Wathsala",
+    nic: "2202222222222",
+    doj: "2023-07-24",
+  },
+  {
+    id: 9,
+    avatar: <AccountCircle />,
+    userName: "Amali Wathsala",
+    nic: "2202222222222",
+    doj: "2023-07-24",
+  },
+  {
+    id: 10,
+    avatar: <AccountCircle />,
+    userName: "Amali Wathsala",
+    nic: "2202222222222",
+    doj: "2023-07-24",
+  },
+  {
+    id: 12,
+    avatar: <AccountCircle />,
+    userName: "Amali Wathsala",
+    nic: "2202222222222",
+    doj: "2023-07-24",
+  },
+  {
+    id: 13,
+    avatar: <AccountCircle />,
+    userName: "Amali Wathsala",
+    nic: "2202222222222",
+    doj: "2023-07-24",
+  },
+];
+
 export const NavMenuData = navMenuData;
 export const GloableSearchOption = gloablesearchoption;
 export const DashboardAnalyticsCardData = dashboardAnalyticsCardData;
 export const CustomerOrderFilterMenuData = customerOrderFilterMenuData;
 export const UserTableRowData = userTableRowData;
 export const DeliveryTableRowData = deliveryTableRowData;
+export const PaymentTableRowData = paymentTableRowData;
 
 //Tempory datatable- This should be need to remove after developing
 //Rides Table Rows
