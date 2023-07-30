@@ -19,6 +19,7 @@ import {
 import { CalendarMonth, NotificationAdd } from "@mui/icons-material";
 import { UserTableRowData as userTableRowData } from "../../utils/constants/uiconstants";
 import SearchField from "../../components/searchfield/searchfield";
+import { CustomTableRow } from "../../components/common/tablerow";
 
 function Users() {
   //User Defined
@@ -41,6 +42,24 @@ function Users() {
   const [selectedRow, setSelectedRow] = useState(0);
   const handleSelectRow = (row, rowIndex) => {
     setSelectedRow(rowIndex);
+  };
+  const [selectedCustomerTableRow, setSelectedCustomerTableRow] = useState(0);
+  const handleSelectedCustomerTableRow = (row, rowIndex) => {
+    setSelectedCustomerTableRow(rowIndex);
+    setSelectedTransportTableRow(0);
+    setSelectedAdminTableRow(0);
+  };
+  const [selectedTransportTableRow, setSelectedTransportTableRow] = useState(0);
+  const handleSelectedTransportTableRow = (row, rowIndex) => {
+    setSelectedTransportTableRow(rowIndex);
+    setSelectedCustomerTableRow(0);
+    setSelectedAdminTableRow(0);
+  };
+  const [selectedAdminTableRow, setSelectedAdminTableRow] = useState(0);
+  const handleSelectedAdminTableRow = (row, rowIndex) => {
+    setSelectedAdminTableRow(rowIndex);
+    setSelectedCustomerTableRow(0);
+    setSelectedTransportTableRow(0);
   };
 
   //Search Field text On change
@@ -147,8 +166,8 @@ function Users() {
                     <Table aria-label="simple table" size="small" stickyHeader>
                       <TableHead>
                         <TableRow
-                          selected={selectedRow === 0}
-                          onClick={() => handleSelectRow(0)}
+                          selected={selectedCustomerTableRow === 0}
+                          onClick={() => handleSelectedCustomerTableRow(0)}
                         >
                           <TableCell></TableCell>
                           <TableCell align="right">User Name</TableCell>
@@ -160,24 +179,55 @@ function Users() {
                       </TableHead>
                       <TableBody sx={{}}>
                         {userTableRowData.map((row, index) => (
-                          <TableRow
+                          <CustomTableRow
                             key={row.id}
                             sx={{
                               "&:last-child td, &:last-child th": { border: 0 },
                             }}
-                            selected={selectedRow === index + 1}
-                            onClick={() => handleSelectRow(row, index + 1)}
+                            selected={selectedCustomerTableRow === index + 1}
+                            onClick={() =>
+                              handleSelectedCustomerTableRow(row, index + 1)
+                            }
                             hover
+                            style={{
+                              borderRadius: "30px",
+                              marginBottom: "8px",
+                            }}
                           >
-                            <TableCell component="th" scope="row">
+                            <TableCell
+                              style={{
+                                borderTopLeftRadius: "15px",
+                                borderBottomLeftRadius: "15px",
+                                color: "inherit",
+                              }}
+                              component="th"
+                              scope="row"
+                            >
                               {row.icon}
                             </TableCell>
-                            <TableCell align="right">{row.userName}</TableCell>
-                            <TableCell align="right">{row.buying}</TableCell>
-                            <TableCell align="right">{row.selling}</TableCell>
-                            <TableCell align="right">{row.nic}</TableCell>
-                            <TableCell align="right">{row.doj}</TableCell>
-                          </TableRow>
+                            <TableCell sx={{ color: "inherit" }} align="right">
+                              {row.userName}
+                            </TableCell>
+                            <TableCell sx={{ color: "inherit" }} align="right">
+                              {row.buying}
+                            </TableCell>
+                            <TableCell sx={{ color: "inherit" }} align="right">
+                              {row.selling}
+                            </TableCell>
+                            <TableCell sx={{ color: "inherit" }} align="right">
+                              {row.nic}
+                            </TableCell>
+                            <TableCell
+                              sx={{
+                                borderTopRightRadius: "15px",
+                                borderBottomRightRadius: "15px",
+                                color: "inherit",
+                              }}
+                              align="right"
+                            >
+                              {row.doj}
+                            </TableCell>
+                          </CustomTableRow>
                         ))}
                       </TableBody>
                     </Table>
@@ -198,8 +248,8 @@ function Users() {
                     <Table aria-label="simple table" size="small" stickyHeader>
                       <TableHead>
                         <TableRow
-                          selected={selectedRow === 0}
-                          onClick={() => handleSelectRow(0)}
+                          selected={selectedTransportTableRow === 0}
+                          onClick={() => handleSelectedTransportTableRow(0)}
                         >
                           <TableCell></TableCell>
                           <TableCell align="right">User Name</TableCell>
@@ -211,24 +261,55 @@ function Users() {
                       </TableHead>
                       <TableBody sx={{}}>
                         {userTableRowData.map((row, index) => (
-                          <TableRow
+                          <CustomTableRow
                             key={row.id}
                             sx={{
                               "&:last-child td, &:last-child th": { border: 0 },
                             }}
-                            selected={selectedRow === index + 1}
-                            onClick={() => handleSelectRow(row, index + 1)}
+                            selected={selectedTransportTableRow === index + 1}
+                            onClick={() =>
+                              handleSelectedTransportTableRow(row, index + 1)
+                            }
                             hover
+                            style={{
+                              borderRadius: "30px",
+                              marginBottom: "8px",
+                            }}
                           >
-                            <TableCell component="th" scope="row">
+                            <TableCell
+                              style={{
+                                borderTopLeftRadius: "15px",
+                                borderBottomLeftRadius: "15px",
+                                color: "inherit",
+                              }}
+                              component="th"
+                              scope="row"
+                            >
                               {row.icon}
                             </TableCell>
-                            <TableCell align="right">{row.userName}</TableCell>
-                            <TableCell align="right">{row.buying}</TableCell>
-                            <TableCell align="right">{row.selling}</TableCell>
-                            <TableCell align="right">{row.nic}</TableCell>
-                            <TableCell align="right">{row.doj}</TableCell>
-                          </TableRow>
+                            <TableCell sx={{ color: "inherit" }} align="right">
+                              {row.userName}
+                            </TableCell>
+                            <TableCell sx={{ color: "inherit" }} align="right">
+                              {row.buying}
+                            </TableCell>
+                            <TableCell sx={{ color: "inherit" }} align="right">
+                              {row.selling}
+                            </TableCell>
+                            <TableCell sx={{ color: "inherit" }} align="right">
+                              {row.nic}
+                            </TableCell>
+                            <TableCell
+                              sx={{
+                                borderTopRightRadius: "15px",
+                                borderBottomRightRadius: "15px",
+                                color: "inherit",
+                              }}
+                              align="right"
+                            >
+                              {row.doj}
+                            </TableCell>
+                          </CustomTableRow>
                         ))}
                       </TableBody>
                     </Table>
@@ -249,8 +330,8 @@ function Users() {
                     <Table aria-label="simple table" size="small" stickyHeader>
                       <TableHead>
                         <TableRow
-                          selected={selectedRow === 0}
-                          onClick={() => handleSelectRow(0)}
+                          selected={selectedAdminTableRow === 0}
+                          onClick={() => handleSelectedTransportTableRow(0)}
                         >
                           <TableCell></TableCell>
                           <TableCell align="right">User Name</TableCell>
@@ -262,24 +343,55 @@ function Users() {
                       </TableHead>
                       <TableBody sx={{}}>
                         {userTableRowData.map((row, index) => (
-                          <TableRow
+                          <CustomTableRow
                             key={row.id}
                             sx={{
                               "&:last-child td, &:last-child th": { border: 0 },
                             }}
-                            selected={selectedRow === index + 1}
-                            onClick={() => handleSelectRow(row, index + 1)}
+                            selected={selectedAdminTableRow === index + 1}
+                            onClick={() =>
+                              handleSelectedAdminTableRow(row, index + 1)
+                            }
                             hover
+                            style={{
+                              borderRadius: "30px",
+                              marginBottom: "8px",
+                            }}
                           >
-                            <TableCell component="th" scope="row">
+                            <TableCell
+                              style={{
+                                borderTopLeftRadius: "15px",
+                                borderBottomLeftRadius: "15px",
+                                color: "inherit",
+                              }}
+                              component="th"
+                              scope="row"
+                            >
                               {row.icon}
                             </TableCell>
-                            <TableCell align="right">{row.userName}</TableCell>
-                            <TableCell align="right">{row.buying}</TableCell>
-                            <TableCell align="right">{row.selling}</TableCell>
-                            <TableCell align="right">{row.nic}</TableCell>
-                            <TableCell align="right">{row.doj}</TableCell>
-                          </TableRow>
+                            <TableCell sx={{ color: "inherit" }} align="right">
+                              {row.userName}
+                            </TableCell>
+                            <TableCell sx={{ color: "inherit" }} align="right">
+                              {row.buying}
+                            </TableCell>
+                            <TableCell sx={{ color: "inherit" }} align="right">
+                              {row.selling}
+                            </TableCell>
+                            <TableCell sx={{ color: "inherit" }} align="right">
+                              {row.nic}
+                            </TableCell>
+                            <TableCell
+                              sx={{
+                                borderTopRightRadius: "15px",
+                                borderBottomRightRadius: "15px",
+                                color: "inherit",
+                              }}
+                              align="right"
+                            >
+                              {row.doj}
+                            </TableCell>
+                          </CustomTableRow>
                         ))}
                       </TableBody>
                     </Table>

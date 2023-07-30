@@ -21,6 +21,7 @@ function SearchBox() {
         placeholder="Search here"
         type="search"
         freeSolo
+        size="small"
         disableClearable
         options={gloableSearchOption.map((searchItem) => searchItem.title)}
         renderInput={(params) => (

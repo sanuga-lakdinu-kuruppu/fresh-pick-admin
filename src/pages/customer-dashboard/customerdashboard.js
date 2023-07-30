@@ -47,6 +47,21 @@ function CustomerDashboard() {
     setSelectedRow(rowIndex);
   };
 
+  //Set the selected row of buying accepted
+  const [selectedBuyingARequesedRow, setSelectedBuyingRequesedRow] =
+    useState(0);
+  const handleSelectedBuyingARequesedRow = (row, rowIndex) => {};
+  const [selectedBuyingAcceptedRow, setSelectedBuyingAcceptedRow] = useState(0);
+  const handleSelectedBuyingAcceptedRow = (row, rowIndex) => {};
+  const [selectedBuyingOngoingRow, setSelectedBuyingOngoingRow] = useState(0);
+  const handleSelectedBuyingOngoingRow = (row, rowIndex) => {};
+  const [selectedBuyingCompletedRow, setSelectedBuyingCompletedRow] =
+    useState(0);
+  const handleSelectedBuyingCompletedRow = (row, rowIndex) => {};
+  const [selectedBuyingCancelledRow, setSelectedBuyingCancelledRow] =
+    useState(0);
+  const handleSelectedBuyingCancelledRow = (row, rowIndex) => {};
+
   //Customer Order Type Filter
   const [orderType, setOrderType] = useState("requested");
   const handleOrderTypeToggleChnaged = (event, newValue) => {

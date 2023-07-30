@@ -5,7 +5,7 @@ import "./sidebarstyles.css";
 import UserCard from "../usercard/usercard";
 function SideBar() {
   return (
-    <div className="bg-light col-auto min-vh-100">
+    <div className="col-auto min-vh-100">
       {/* Application Logo */}
       <a
         href="http://localhost:3000/"
@@ -22,6 +22,7 @@ function SideBar() {
           </div>
         </div>
       </a>
+
       {/* Nav bar of the application */}
       <ul className="nav nav-pills mx-2 my-4">
         <NavMenu />
