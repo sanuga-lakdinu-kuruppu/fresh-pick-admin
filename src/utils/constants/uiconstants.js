@@ -18,6 +18,8 @@ import report_warranty_img from "../../assets/graphics/images/report_imgs/report
 import report_bill_img from "../../assets/graphics/images/report_imgs/report_bill_img.png";
 import fast_man from "../../assets/graphics/images/report_imgs/fast.png";
 import delivery_truck from "../../assets/graphics/images/report_imgs/delivery-truck.png";
+import best_seller_img from "../../assets/graphics/images/report_imgs/best-sellerreport_img.png";
+import seller_woman from "../../assets/graphics/images/report_imgs/womanreport_img.png";
 
 //navigation Menu Data
 const navMenuData = [
@@ -298,7 +300,7 @@ const reportCardData = [
     iconImage: report_warranty_img,
     cardDescription:
       "You can generate your seller report for your selected period below",
-    sideImage: fast_man,
+    sideImage: best_seller_img,
   },
   {
     id: 2,
@@ -309,7 +311,7 @@ const reportCardData = [
     iconImage: report_bill_img,
     cardDescription:
       "You can generate buyer report for your selected period below.",
-    sideImage: delivery_truck,
+    sideImage: seller_woman,
   },
   {
     id: 3,
@@ -342,7 +344,7 @@ const reportCardData = [
     iconImage: report_warranty_img,
     cardDescription:
       "You can generate your Income report for your selected period below",
-    sideImage: fast_man,
+    sideImage: delivery_truck,
   },
 ];
 
@@ -371,88 +373,7 @@ const ridesTableRows = [
     id: 2,
     orderId: 46813297654564,
     avatar: <AccountCircle />,
-    product: "Korean (Long) Radish",
-    qty: "115 kg",
-    status: "Requested",
-    date: "18 June 2023",
-  },
-  {
-    id: 3,
-    orderId: 46813297654564,
-    avatar: <AccountCircle />,
-    product: "Korean (Long) Radish",
-    qty: "115 kg",
-    status: "Requested",
-    date: "18 June 2023",
-  },
-  {
-    id: 4,
-    orderId: 46813297654564,
-    avatar: <AccountCircle />,
-    product: "Korean (Long) Radish",
-    qty: "115 kg",
-    status: "Requested",
-    date: "18 June 2023",
-  },
-  {
-    id: 5,
-    orderId: 46813297654564,
-    avatar: <AccountCircle />,
-    product: "Korean (Long) Radish",
-    qty: "115 kg",
-    status: "Requested",
-    date: "18 June 2023",
-  },
-  {
-    id: 6,
-    orderId: 46813297654564,
-    avatar: <AccountCircle />,
-    product: "Korean (Long) Radish",
-    qty: "115 kg",
-    status: "Requested",
-    date: "18 June 2023",
-  },
-  {
-    id: 7,
-    orderId: 46813297654564,
-    avatar: <AccountCircle />,
-    product: "Korean (Long) Radish",
-    qty: "115 kg",
-    status: "Requested",
-    date: "18 June 2023",
-  },
-  {
-    id: 8,
-    orderId: 46813297654564,
-    avatar: <AccountCircle />,
-    product: "Korean (Long) Radish",
-    qty: "115 kg",
-    status: "Requested",
-    date: "18 June 2023",
-  },
-  {
-    id: 9,
-    orderId: 46813297654564,
-    avatar: <AccountCircle />,
-    product: "Korean (Long) Radish",
-    qty: "115 kg",
-    status: "Requested",
-    date: "18 June 2023",
-  },
-  {
-    id: 10,
-    orderId: 46813297654564,
-    avatar: <AccountCircle />,
-    product: "Korean (Long) Radish",
-    qty: "115 kg",
-    status: "Requested",
-    date: "18 June 2023",
-  },
-  {
-    id: 11,
-    orderId: 46813297654564,
-    avatar: <AccountCircle />,
-    product: "Korean (Long) Radish",
+    product: "Carrot",
     qty: "115 kg",
     status: "Requested",
     date: "18 June 2023",

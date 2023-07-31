@@ -121,9 +121,9 @@ function CustomerDashboard() {
       {/* Content */}
       <div className="row">
         {/* Customer Tab Sections */}
-        <div className="col-8">
+        <div className="col-8 min-vh-100">
           {/* Customer Heading*/}
-          <div className="row bg-light mb-3 ms-4 py-3 rounded">
+          <div className="row bg-white mb-3 ms-4 py-3 rounded">
             <div className="h4 secondary-color fw-bolder text-black">
               Amali Wathsala
               <div className="d-block float-end">

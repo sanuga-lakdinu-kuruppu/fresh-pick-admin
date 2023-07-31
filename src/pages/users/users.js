@@ -115,9 +115,9 @@ function Users() {
       {/* Content */}
       <div className="row">
         {/* User Tab Sections */}
-        <div className="col-8">
+        <div className="col-12 min-vh-100">
           {/* User Heading*/}
-          <div className="row bg-light mb-3 ms-4 py-2 rounded">
+          <div className="row bg-white mb-3 ms-4 py-2 rounded">
             <div className="h4 secondary-color fw-bolder text-black">
               All Users
               <div className="d-block float-end">
